@@ -36,6 +36,8 @@ This project is part of the Udacity Nanodegree Program "Become a Data Scientist"
 
 Finally, a machine learning model is built. This model helps to predict order completions based on the data provided.
 
+Link to Medium-Post: https://felixburkhardt.medium.com/starbucks-promotional-offer-analysis-9596cced1510
+
 ## File Descriptions <a name="files"></a>
 
 The data is contained in three files:
@@ -68,7 +70,7 @@ Here is the schema and explanation of each variable in the files:
 * value - (dict of strings) - either an offer id or transaction amount depending on the record
 
 ## Acknowledgement <a name="acknowledgement"></a>
-Udacity and Sturbuck
+Udacity and Starbucks
 
 Further resources:
 https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html and https://stackoverflow.com/questions/6986986/bin-size-in-matplotlib-histogram
