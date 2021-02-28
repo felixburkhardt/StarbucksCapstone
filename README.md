@@ -27,14 +27,15 @@ The code should run with Python versions 3.*. The following libraries are necess
 
 ## Project Motivation<a name="motivation"></a>
 
-This project is part of the Udacity Nanodegree Program "Become a Data Scientist". Basis of the Project is a Starbucks Dataset which simulates the purchasing behaviour of customers and how their decisions are influenced by promotions. The analysis aswers general questions such as:
+This project is part of the Udacity Nanodegree Program "Become a Data Scientist". Basis of the Project is a Starbucks Dataset which simulates the purchasing behaviour of customers and how their decisions are influenced by promotions.
 
-- General analysis of offer usage by gender
-- General analysis of offer usage by age
-- General analysis of offer usage by income
-- General analysis of offer usage by offer
-
-Finally, a machine learning model is built. This model helps to predict order completions based on the data provided.
+This data set contains simulated data that mimics customer behavior on the Starbucks rewards mobile app. Once every few days, Starbucks sends out an offer to users of the mobile app. An offer can be merely an advertisement for a drink or an actual offer such as a discount or BOGO (buy one get one free). Some users might not receive any offer during certain weeks.
+The basis of this project are three datasets: portifolio.json, profile.json and transcript.json.
+The portfolio dataset includes general offer-information such as which channel was used to communicate with potential customers (email, mobile, social), the difficulty which represents the amount of money a customer must spend in order to receive a discount, the duration of the offer, an unique offer id, the offer type and finally the reward itself.
+The profile data set provieds detailed customer data such as age, gender, income and the date, an account was created via the Starbucks app.
+The transcript data set lists purchases and detailed information about when and if an offer was completed or not. An offer can be regarded as successfull, once a customer both views an offer an reaches its difficulty within the odder's duration.
+In the following, I am going to build a model that predicts if a customer will respond to an offer or not based on the information provided in the data sets. I will approach this issue in several steps: First I want to get a general understanding of the data sets. The Data Understanding section (1) will be used to understand and get to know the provided data. Second, I will be clean and combine the data sets as basis for a machine learing model (2). In order to prepare and clean the data, categorical variables must be replaced by dummy variables, numercial features must be normalized, NaNs must be eliminated and the offer_id must be cleaned (transcipt data set) in order to identify a key value to merge the data frames. Once all data is cleaned, the data sets can be combined. As a consequence, each row of the new data set will provide information of the offer itself, the related customer and whether or not the offer was successful or not.
+Finally, I will build a model that predicts if a customer will respond to an offer or not. I will do so by computing the accuracy and the F1-Score of a naive model as a benchmark. The accuracy measures how well the model predicts an offer is successfull or not. The F1 score can be interpreted as a weighted average of the precision and recall, where a F1 score reaches its best value at 1 and worst score at 0. This model will be used as a benachmark for the other model I will cosntruct.
 
 Link to Medium-Post: https://felixburkhardt.medium.com/starbucks-promotional-offer-analysis-9596cced1510
 
