@@ -18,24 +18,21 @@ The code should run with Python versions 3.*. The following libraries are necess
 3. math
 4. json
 5. matplotlib
-6. sklearn.tree import DecisionTreeClassifier
-7. sklearn.pipeline import Pipeline
-8. sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
-9. sklearn.multioutput import MultiOutputClassifier
-10. sklearn.preprocessing import OneHotEncoder
-11. sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, make_scorer
+7. sklearn.model_selection import train_test_split
+8. sklearn.pipeline import Pipeline
+9. sklearn.feature_extraction.text import CountVectorizer, TfidfTransformer
+10. sklearn.multioutput import MultiOutputClassifier
+11. sklearn.preprocessing import OneHotEncoder
+12. sklearn.ensemble import GradientBoostingClassifier, RandomForestClassifier
+13. sklearn.metrics import fbeta_score, make_scorer
+14.  sklearn.model_selection import GridSearchCV, RandomizedSearchCV
+15. sklearn.metrics import accuracy_score, f1_score
 
 ## Project Motivation<a name="motivation"></a>
 
-This project is part of the Udacity Nanodegree Program "Become a Data Scientist". Basis of the Project is a Starbucks Dataset which simulates the purchasing behaviour of customers and how their decisions are influenced by promotions.
+The data-sets analyzed contain simulated data that mimics customer behavior on the Starbucks rewards mobile app. Once every few days, Starbucks sends out an offer to users of the mobile app. An offer can be merely an advertisement for a drink or an actual offer such as a discount or BOGO (buy one get one free). Some users might not receive any offer during certain weeks.
 
-This data set contains simulated data that mimics customer behavior on the Starbucks rewards mobile app. Once every few days, Starbucks sends out an offer to users of the mobile app. An offer can be merely an advertisement for a drink or an actual offer such as a discount or BOGO (buy one get one free). Some users might not receive any offer during certain weeks.
-The basis of this project are three datasets: portifolio.json, profile.json and transcript.json.
-The portfolio dataset includes general offer-information such as which channel was used to communicate with potential customers (email, mobile, social), the difficulty which represents the amount of money a customer must spend in order to receive a discount, the duration of the offer, an unique offer id, the offer type and finally the reward itself.
-The profile data set provieds detailed customer data such as age, gender, income and the date, an account was created via the Starbucks app.
-The transcript data set lists purchases and detailed information about when and if an offer was completed or not. An offer can be regarded as successfull, once a customer both views an offer an reaches its difficulty within the odder's duration.
-In the following, I am going to build a model that predicts if a customer will respond to an offer or not based on the information provided in the data sets. I will approach this issue in several steps: First I want to get a general understanding of the data sets. The Data Understanding section (1) will be used to understand and get to know the provided data. Second, I will be clean and combine the data sets as basis for a machine learing model (2). In order to prepare and clean the data, categorical variables must be replaced by dummy variables, numercial features must be normalized, NaNs must be eliminated and the offer_id must be cleaned (transcipt data set) in order to identify a key value to merge the data frames. Once all data is cleaned, the data sets can be combined. As a consequence, each row of the new data set will provide information of the offer itself, the related customer and whether or not the offer was successful or not.
-Finally, I will build a model that predicts if a customer will respond to an offer or not. I will do so by computing the accuracy and the F1-Score of a naive model as a benchmark. The accuracy measures how well the model predicts an offer is successfull or not. The F1 score can be interpreted as a weighted average of the precision and recall, where a F1 score reaches its best value at 1 and worst score at 0. This model will be used as a benachmark for the other model I will cosntruct.
+In this project I am building a model that predicts if a customer will respond to an offer or not based on the provided data sets. I will approach this issue in several steps: First I want to get a general understanding of the data sets. Second, I will clean and combine the data sets as basis for a machine learning model. As a consequence, each row of the new data set will provide information of the offer itself, the related customer and whether or not the offer was successful or not. Finally, I will build a model that predicts if a customer will respond to an offer or not.
 
 Link to Medium-Post: https://felixburkhardt.medium.com/starbucks-promotional-offer-analysis-9596cced1510
 
@@ -70,12 +67,27 @@ Here is the schema and explanation of each variable in the files:
 * time (int) - time in hours since start of test. The data begins at time t=0
 * value - (dict of strings) - either an offer id or transaction amount depending on the record
 
+Additionally, a Jupyter Notebook with all the relevant code is porvided
+**Starbucks_Capstone_notebook-5.ipynb**
+
 ## Acknowledgement <a name="acknowledgement"></a>
 Udacity and Starbucks
 
 Further resources:
+https://medium.com/airbnb-engineering/overcoming-missing-values-in-a-random-forest-classifier-7b1fc1fc03ba
+
 https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html and https://stackoverflow.com/questions/6986986/bin-size-in-matplotlib-histogram
 
 https://stackoverflow.com/questions/6986986/bin-size-in-matplotlib-histogram
 
 https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html
+
+https://uc-r.github.io/ts_benchmarking#naive
+
+https://www.programcreek.com/python/example/84417/sklearn.metrics.accuracy_score
+
+https://de.wikipedia.org/wiki/Random_Forest
+
+https://towardsai.net/p/machine-learning/why-choose-random-forest-and-not-decision-trees
+
+https://scikit-learn.org/stable/modules/generated/sklearn.ensemble.RandomForestClassifier.html
